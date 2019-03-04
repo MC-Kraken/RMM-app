@@ -1,12 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -15,37 +6,40 @@ import {
   View,
   SafeAreaView
 } from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import Login from './screens/Login';
+import Home from './screens/Home';
+import Register from './screens/Register'
 
 
+// export default class App extends Component {
+//   render() {
+//     return (
+//       // <SafeAreaView style={styles.container}>
+//         <AppContainer />
+//       // </SafeAreaView>
+//     );
+//   }
+// }
 
-export default class App extends Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View>
-          <Login />
-        </View>
-      </SafeAreaView>
-    );
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: 'red',
+//   }
+// });
+
+const AppNavigator = createStackNavigator(
+  {
+    Login,
+    Home,
+    Register
+  },
+  {
+    initialRouteName: "Login"
   }
-}
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default createAppContainer(AppNavigator);

@@ -4,28 +4,42 @@ import {
     ImageBackground,
     StyleSheet,
     TextInput,
-    Text
+    Text,
+    SafeAreaView,   
 } from 'react-native';
+import { ButtonGroup } from 'react-native-elements';
+
+
 
 class Login extends Component {
 
+    constructor () {
+        super()
+        this.state = {
+          selectedIndex: null
+        }
+        this.updateIndex = this.updateIndex.bind(this)
+      }
+
+      updateIndex (selectedIndex) {
+        this.setState(selectedIndex ? () => this.props.navigation.navigate("Register") : () => this.props.navigation.navigate("Home"))
+      }
+
+      
+
     render() {
+        const { selectedIndex } = this.state
+        const buttons = ['Login', 'Register']
         return (
-
-
-            <View>
-                
-                <ImageBackground borderRadius={20} style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
-                
-                <TextInput keyboardType="email-address" placeholder='Email' style={styles.loginForm}></TextInput>
-                <TextInput keyboardType="default" secureTextEntry placeholder='Password' style={styles.loginForm}></TextInput>
-                
-                <Text style={styles.regLink}
-                    onPress={() => Linking.openURL('./register')}>
-                    Don't have an account?
-                </Text>
-
-            </View>
+            <SafeAreaView style={styles.container}>
+                <View>
+                    <ImageBackground borderRadius={20} style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
+                    <TextInput keyboardType="email-address" placeholder='Email' style={styles.loginForm}></TextInput>
+                    <TextInput keyboardType="default" secureTextEntry placeholder='Password' style={styles.loginForm}></TextInput>
+                    <ButtonGroup buttons={buttons} raised={true} containerStyle={{height: 40}} containerStyle={{borderRadius: 40}} 
+                        containerStyle={{marginTop: 20}}selectedIndex={selectedIndex} onPress={this.updateIndex}  />
+                </View>
+            </SafeAreaView>
         )
     }
 }
@@ -41,13 +55,13 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 20,
         borderWidth: 1,
-        marginTop: 20, 
+        marginTop: 20,
     },
-    regLink: {
-        color: 'white', 
-        textAlign: 'center',
-        textDecorationLine: 'underline',
-        marginTop: 10
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'red',
     }
 })
 
