@@ -6,7 +6,7 @@ import {
   View,
   SafeAreaView
 } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, createDrawerNavigator } from "react-navigation";
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Register from './screens/Register'
@@ -39,7 +39,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Login"
-  }
+  },
 );
 
 export default createAppContainer(AppNavigator);
