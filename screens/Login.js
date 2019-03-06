@@ -62,7 +62,6 @@ class Login extends Component {
                         titleStyle={{ color: 'white' }}
                     />
                     <Button 
-                        
                         buttonStyle={{ width: 200, height: 40, marginTop: 20, backgroundColor: 'transparent', borderColor: 'white' }}
                         title="Register"
                         onPress={ () => this.props.navigation.navigate('Register') }

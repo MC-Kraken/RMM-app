@@ -4,13 +4,15 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
-import { createStackNavigator, createAppContainer, createDrawerNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createDrawerNavigator, createSwitchNavigator, createBottomTabNavigator } from "react-navigation";
 import Login from './screens/Login';
 import Home from './screens/Home';
+import Classes from './screens/Classes'
+import Account from './screens/Account'
 import Register from './screens/Register'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 // export default class App extends Component {
 //   render() {
@@ -31,10 +33,49 @@ import Register from './screens/Register'
 //   }
 // });
 
-const AppNavigator = createStackNavigator(
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home,
+    Classes,
+    Account
+  },
+  {
+    navigationOptions: ({navigation}) => {
+      const {routeName} = navigation.state.routes[navigation.state.index]
+        return {
+          headerTitle: routeName
+        }
+    }
+  }
+)
+
+const StackNavigator = createStackNavigator(
+  {
+    TabNavigator
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => {
+      return {
+        headerLeft: <Icon name="bars" size={30} />
+      }
+    }
+  }
+)
+
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Home: {
+      screen: StackNavigator
+    }
+  }
+)
+
+const SwitchNavigator = createSwitchNavigator(
   {
     Login,
-    Home,
+    Home: {
+      screen: DrawerNavigator
+    },
     Register
   },
   {
@@ -42,4 +83,4 @@ const AppNavigator = createStackNavigator(
   },
 );
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(SwitchNavigator);

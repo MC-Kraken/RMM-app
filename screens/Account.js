@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 
-class Home extends Component {
+class Account extends Component {
     static navigationOptions = {
-        title: 'Home',
+        title: 'Account',
         headerStyle: {
             backgroundColor: 'red',
         },
@@ -37,4 +37,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Account;
