@@ -34,7 +34,7 @@ class Register extends Component {
         this.confirmInput = React.createRef();
     }
     render() {
-        return (<ScrollView style={{ width: '100%' }}>
+        return (
             <SafeAreaView style={styles.container}>
                 <ImageBackground style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
                 <TextInput
@@ -101,7 +101,7 @@ class Register extends Component {
                     />
                 </View>
             </SafeAreaView>
-        </ScrollView>
+        
         )
     }
 }
