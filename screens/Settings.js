@@ -17,8 +17,7 @@ class Settings extends Component {
     render() {
         return (
             <View>
-                <Button 
-                title="test"/>
+            
             </View>
         )
     }

@@ -9,15 +9,20 @@ import {
 import { createStackNavigator, createAppContainer, createDrawerNavigator, createSwitchNavigator, createBottomTabNavigator } from "react-navigation";
 import Login from './screens/Login';
 import Home from './screens/Home';
-import Classes from './screens/Classes';
-import Account from './screens/Account';
-import Register from './screens/Register';
 import Settings from './screens/Settings';
 import EditAccount from './screens/EditAccount';
 import Splash from './screens/Splash';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Avatar } from 'react-native-elements';
+import Classes from './screens/Classes'
+import Account from './screens/Account'
+import Register from './screens/Register'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import MyWeb from './links/MyWeb'
+import Sept from './links/Sept'
+import Aug from './links/Aug'
+import Weld from './links/Weld'
+import Pie from './links/Pie'
 
 // export default class App extends Component {
 //   render() {
@@ -37,22 +42,6 @@ import { Avatar } from 'react-native-elements';
 //     backgroundColor: 'red',
 //   }
 // });
-
-class Main extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          currentScreen: 'Splash'
-      }
-  setTimeout(() => this.setState({currentScreen: 'Login'}), 3000)
-
-  }
-  render() {
-      const { currentScreen } = this.state
-      let mainScreen = currentScreen === 'Splash' ? <Splash /> : <Login />
-      return mainScreen
-  }
-}
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -102,8 +91,13 @@ TabNavigator.navigationOptions = ({ navigation }) => {
 const StackNavigator = createStackNavigator(
   {
     TabNavigator,
+    EditAccount,
     Settings,
-    EditAccount
+    MyWeb,
+    Pie,
+    Weld,
+    Sept,
+    Aug
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
