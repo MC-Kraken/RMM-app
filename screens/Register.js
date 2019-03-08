@@ -14,13 +14,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 class Register extends Component {
-    static navigationOptions = {
-        title: 'Register',
-        headerStyle: {
-            backgroundColor: '#1034A6',
-        },
-        headerTintColor: 'white',
-    };
 
     constructor(props) {
         super(props)
@@ -87,7 +80,7 @@ class Register extends Component {
                     <Button
                         onPress={() => this.props.navigation.navigate('Home')}
                         containerStyle={{ alignItems: 'center', justifyContent: 'center' }}
-                        buttonStyle={{ backgroundColor: '#1034A6', width: 100, marginTop: 10 }}
+                        buttonStyle={{ backgroundColor: '#e80707', width: 100, marginTop: 10 }}
                         titleStyle={{ color: 'white', marginLeft: 7 }}
                         title="Register"
                         type="outline"
@@ -127,18 +120,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
-    // textTop: {
-    //     color: 'red',
-    //     fontSize: 30,
-    //     fontWeight: 'bold',
-    //     textAlign: 'center',
-    // },
-    // textBottom: {
-    //     color: 'black',
-    //     fontSize: 30,
-    //     fontWeight: 'bold',
-    //     textAlign: 'center',
-    // }
 })
 
 export default Register;
