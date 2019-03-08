@@ -13,6 +13,11 @@ import Classes from './screens/Classes'
 import Account from './screens/Account'
 import Register from './screens/Register'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import MyWeb from './links/MyWeb'
+import Sept from './links/Sept'
+import Aug from './links/Aug'
+import Weld from './links/Weld'
+import Pie from './links/Pie'
 
 // export default class App extends Component {
 //   render() {
@@ -51,7 +56,12 @@ const TabNavigator = createBottomTabNavigator(
 
 const StackNavigator = createStackNavigator(
   {
-    TabNavigator
+    TabNavigator,
+    MyWeb,
+    Pie,
+    Weld,
+    Sept,
+    Aug
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
