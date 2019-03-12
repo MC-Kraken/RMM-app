@@ -1,47 +1,22 @@
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-} from 'react-native';
+import React from 'react';
 import { createStackNavigator, createAppContainer, createDrawerNavigator, createSwitchNavigator, createBottomTabNavigator } from "react-navigation";
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Settings from './screens/Settings';
 import EditAccount from './screens/EditAccount';
-import Splash from './screens/Splash';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Avatar } from 'react-native-elements';
-import Classes from './screens/Classes'
-import Account from './screens/Account'
-import Register from './screens/Register'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import MyWeb from './links/MyWeb'
-import Sept from './links/Sept'
-import Aug from './links/Aug'
-import Weld from './links/Weld'
-import Pie from './links/Pie'
+import Classes from './screens/Classes';
+import Account from './screens/Account';
+import Register from './screens/Register';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MyWeb from './links/MyWeb';
+import Sept from './links/Sept';
+import Aug from './links/Aug';
+import Weld from './links/Weld';
+import Pie from './links/Pie';
+import Oct from './links/Oct';
 
-// export default class App extends Component {
-//   render() {
-//     return (
-//       // <SafeAreaView style={styles.container}>
-//         <AppContainer />
-//       // </SafeAreaView>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: 'red',
-//   }
-// });
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -65,13 +40,11 @@ const TabNavigator = createBottomTabNavigator(
         else if (routeName === 'Account') {
           iconName = 'user';
         }
-
-        // You can return any component that you like here!
         return <Icon name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
-      activeTintColor: '#e80707',
+      activeTintColor: 'rgb(249, 15, 28)',
       inactiveTintColor: 'gray',
     },
   },
@@ -97,7 +70,8 @@ const StackNavigator = createStackNavigator(
     Pie,
     Weld,
     Sept,
-    Aug
+    Aug, 
+    Oct
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
@@ -137,7 +111,7 @@ const DrawerNavigator = createDrawerNavigator(
   {
     contentOptions: {
       inactiveTintColor: 'black',
-      activeTintColor: '#e80707'
+      activeTintColor: 'rgb(249, 15, 28)'
     }
   }
 )

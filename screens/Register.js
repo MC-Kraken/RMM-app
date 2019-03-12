@@ -6,7 +6,7 @@ import {
     TextInput,
     Text,
     SafeAreaView,
-    ScrollView
+    ScrollView,
 } from 'react-native';
 import { Button, CheckBox } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -19,91 +19,151 @@ class Register extends Component {
         super(props)
 
         this.state = {
-            checked: false
+            checked: false,
+            email: "",
+            Fname: "",
+            Lname: "",
+            password: "",
+            password2: "",
+            errors: []
         }
 
         this.emailInput = React.createRef();
         this.passwordInput = React.createRef();
         this.confirmInput = React.createRef();
     }
+
+    userRegister = async () => {
+        try {
+            let response = await fetch("https://cryptic-crag.herokuapp.com/api/register", {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: this.state.email,
+                    firstName: this.state.Fname,
+                    lastName: this.state.Lname,
+                    password: this.state.password,
+                    password2: this.state.password2
+                }),
+            });
+            let res = await response.json();
+            if (res.errors) {
+                this.setState({ errors: res.errors });
+            } else {
+                // let accessToken = res.token;
+                // this.storeToken(accessToken);
+                this.props.navigation.navigate('Login');
+            }
+        } catch (errors) {
+            console.log('catch err');
+            console.log(errors);
+        }
+    }
+
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <ImageBackground style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
-                <TextInput
-                    underlineColorAndroid='red'
-                    onSubmitEditing={() => { this.emailInput.current.focus(); }}
-                    returnKeyType="next"
-                    keyboardType="default"
-                    placeholder='Name'
-                    autoCapitalize="words"
-                    style={styles.form}>
-                </TextInput>
-                <TextInput
-                    underlineColorAndroid='red'
-                    ref={this.emailInput}
-                    onSubmitEditing={() => { this.passwordInput.current.focus(); }}
-                    returnKeyType="next"
-                    keyboardType="email-address"
-                    placeholder='Email'
-                    style={styles.form}>
-                </TextInput>
-                <TextInput
-                    underlineColorAndroid='red'
-                    ref={this.passwordInput}
-                    onSubmitEditing={() => { this.confirmInput.current.focus(); }}
-                    returnKeyType="next"
-                    keyboardType="default"
-                    placeholder='Password'
-                    style={styles.form}
-                    secureTextEntry>
-                </TextInput>
-                <TextInput
-                    underlineColorAndroid='red'
-                    ref={this.confirmInput}
-                    keyboardType="default"
-                    placeholder='Confirm Password'
-                    style={styles.form}
-                    secureTextEntry>
-                </TextInput>
-                <View>
-                    <CheckBox
-                        onPress={() => this.setState({ checked: !this.state.checked })}
-                        center
-                        title='Agree to terms of service'
-                        checkedIcon='check-square'
-                        uncheckedIcon='square'
-                        checked={this.state.checked}
-                        checkedColor='green'
-                        containerStyle={{ borderColor: 'white', backgroundColor: 'white', marginTop: 20 }}
-                    />
-                    <Button
-                        onPress={() => this.props.navigation.navigate('Home')}
-                        containerStyle={{ alignItems: 'center', justifyContent: 'center' }}
-                        buttonStyle={{ backgroundColor: '#e80707', width: 100, marginTop: 10 }}
-                        titleStyle={{ color: 'white', marginLeft: 7 }}
-                        title="Register"
-                        type="outline"
-                        icon={
-                            <Icon
-                                name="user-plus"
-                                size={15}
-                                color="white"
-                            />
-                        }
-                    />
-                </View>
-            </SafeAreaView>
-        
+            <ScrollView style={{ width: '100%' }}>
+                <SafeAreaView style={styles.container}>
+                    <ImageBackground style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
+                    <Errors errors={this.state.errors} />
+                    <TextInput
+                        onChangeText={(Fname) => this.setState({ Fname })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        onSubmitEditing={() => { this.emailInput.current.focus(); }}
+                        returnKeyType="next"
+                        keyboardType="default"
+                        placeholder='First Name'
+                        autoCapitalize="words"
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={(Lname) => this.setState({ Lname })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        onSubmitEditing={() => { this.emailInput.current.focus(); }}
+                        returnKeyType="next"
+                        keyboardType="default"
+                        placeholder='Last Name'
+                        autoCapitalize="words"
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={(email) => this.setState({ email })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        ref={this.emailInput}
+                        onSubmitEditing={() => { this.passwordInput.current.focus(); }}
+                        returnKeyType="next"
+                        keyboardType="email-address"
+                        placeholder='Email'
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={(password) => this.setState({ password })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        ref={this.passwordInput}
+                        onSubmitEditing={() => { this.confirmInput.current.focus(); }}
+                        returnKeyType="next"
+                        keyboardType="default"
+                        placeholder='Password'
+                        style={styles.form}
+                        secureTextEntry>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={(password2) => this.setState({ password2 })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        ref={this.confirmInput}
+                        keyboardType="default"
+                        placeholder='Confirm Password'
+                        style={styles.form}
+                        secureTextEntry>
+                    </TextInput>
+                    <View>
+                        <CheckBox
+                            onPress={() => this.setState({ checked: !this.state.checked })}
+                            center
+                            title='Agree to terms of service'
+                            checkedIcon='check-square'
+                            uncheckedIcon='square'
+                            checked={this.state.checked}
+                            checkedColor='green'
+                            containerStyle={{ borderColor: 'white', backgroundColor: 'white', marginTop: 10 }}
+                        />
+                        <Button
+                            onPress={this.userRegister}
+                            containerStyle={{ alignItems: 'center', justifyContent: 'center' }}
+                            buttonStyle={{ backgroundColor: 'rgb(249, 15, 28)', width: 100, marginTop: 10, marginBottom: 20 }}
+                            titleStyle={{ color: 'white', marginLeft: 7 }}
+                            title="Register"
+                            icon={
+                                <Icon
+                                    name="user-plus"
+                                    size={15}
+                                    color="white"
+                                />
+                            }
+                        />
+                    </View>
+                </SafeAreaView>
+            </ScrollView>
         )
     }
+}
+
+const Errors = (props) => {
+    return (
+        <View>
+            {props.errors.map((error, i) => <Text key={i} style={{ marginTop: 10, textAlign: 'center', color: 'rgb(249, 15, 28)' }}> {error.msg} </Text>)}
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
     bgImg: {
         width: 200,
         height: 200,
-        marginTop: 25
+        marginTop: 25,
     },
     form: {
         height: 40,

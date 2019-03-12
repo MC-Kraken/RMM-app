@@ -30,14 +30,14 @@ class EditAccount extends Component {
                 <Text style={ styles.name }>Pete Wiley</Text>
                 <Text style={ styles.status }>Maker Pro</Text>
                 <TextInput
-                    underlineColorAndroid='red'
+                    underlineColorAndroid='rgb(249, 15, 28)'
                     keyboardType="default"
                     placeholder='Change name'
                     autoCapitalize="words"
                     style={styles.form}>
                 </TextInput>
                 <TextInput
-                    underlineColorAndroid='red'
+                    underlineColorAndroid='rgb(249, 15, 28)'
                     returnKeyType="next"
                     keyboardType="email-address"
                     placeholder='Change email'
@@ -53,7 +53,7 @@ class EditAccount extends Component {
                 <Button 
                 onPress={() => this.props.navigation.navigate('Account')}
                 containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "#e80707" }}
+                buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                 title="Done"
                 />
             </View>

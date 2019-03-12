@@ -15,64 +15,63 @@ import { Button, Card } from "react-native-elements";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Home extends Component {
-  static navigationOptions = {
-    title: "Home",
-    headerStyle: {
-      backgroundColor: "red"
-    },
-    headerTintColor: "white",
-    headerRight: (
-      <Button
-        title="Log Out"
-        buttonStyle={{
-          backgroundColor: "white",
-          width: 80,
-          marginRight: 20,
-          height: 30
-        }}
-        titleStyle={{ color: "red" }}
-        type="outline"
-      />
-    )
-  };
+//   static navigationOptions = {
+//     title: "Home",
+//     headerStyle: {
+//       backgroundColor: "red"
+//     },
+//     headerTintColor: "white",
+//     headerRight: (
+//       <Button
+//         title="Log Out"
+//         buttonStyle={{
+//           backgroundColor: "white",
+//           width: 80,
+//           marginRight: 20,
+//           height: 30
+//         }}
+//         titleStyle={{ color: "red" }}
+//         type="outline"
+//       />
+//     )
+//   };
   render() {
     return (
-      <ScrollView style={styles.view}>
-        <ImageBackground
-          source={require("../assets/Birmingham-Alabama.jpg")}
-          style={{ width: "100%", height: "100%" }}
-        >      
-          <Image style={{marginHorizontal: -30}} source={require("../assets/rmmLandingLogo.jpg")} />
+      <ScrollView>
+        <View style={{ backgroundColor: 'white' }}>
+          <Image style={{ width: '100%', height: 300 }} source={require("../assets/vulcan.jpg")} />
           <View>
-          <Icon style={{ marginLeft: 135 }}  name="chevron-down" size={100} color="white"/>
-          </View>
           <Text style = {styles.welcome}> Latest News </Text>
+          <Icon style={{ textAlign: 'center' }}  name="chevron-down" size={30} color="black"/>
+          </View>
+          
           <Card
             title="25% off Maker Membership"
-            containerStyle={{ borderRadius: 10, opacity: 0.8 }}
+            titleStyle={{ fontSize: 25 }}
+            containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
             image={require("../assets/RMMpost.jpg")}
+            dividerStyle= {{ borderWidth: 4, borderColor: 'black' }}
           >
             <Text style={styles.posts}>
               In celebration of Women's History month, Red Mountain Makers is
               offering 25% off the first month's membership to our women maker
               community! Come by any Sunday in the month of March to tour the
               space during Open Maker Hours (5:30pm -9pm) and sign up to become
-              a Red Mountain Maker! RSVP at{" "}
+              a Red Mountain Maker! RSVP at Meetup
               <Text
                 style={{ color: "blue" }}
                 onPress={() =>
                   LinkingIOS.openURL(
                     "https://www.meetup.com/RedMountainMakers/"
                   )
-                }
-              >
-                Meetup
-              </Text>
+                }>
+            </Text>
             </Text>
           </Card>
           <Card
             title="Smarter Bham & BASE"
-            containerStyle={{ borderRadius: 10, opacity: 0.8 }}
+            titleStyle={{ fontSize: 25 }}
+            containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
             image={require("../assets/baseimg.png")}
           >
             <Text style={styles.posts}>
@@ -84,7 +83,8 @@ class Home extends Component {
           </Card>
           <Card
             title="18 Channels"
-            containerStyle={{ borderRadius: 10, opacity: 0.8 }}
+            titleStyle={{ fontSize: 25 }}
+            containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
             image={require("../assets/veml.jpg")}
           >
             <Text style={styles.posts}>
@@ -97,7 +97,8 @@ class Home extends Component {
           </Card>
           <Card
             title="Laser Cutter Fundraiser"
-            containerStyle={{ borderRadius: 10, opacity: 0.8 }}
+            titleStyle={{ fontSize: 25 }}
+            containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
             image={require("../assets/fundraiser.jpg")}
           >
             <Text style={styles.posts}>
@@ -109,7 +110,8 @@ class Home extends Component {
           </Card>
           <Card
             title="MR101 Intro to Quadcopters, Multi-rotors and Drones"
-            containerStyle={{ borderRadius: 10, opacity: 0.8 }}
+            titleStyle={{ fontSize: 25 }}
+            containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
             image={require("../assets/drone.jpg")}
           >
             <Text style={styles.posts}>
@@ -119,7 +121,7 @@ class Home extends Component {
               720P HD camera. Check out classes for more info!
             </Text>
           </Card>
-        </ImageBackground>
+        </View>
       </ScrollView>
     );
   }
@@ -127,23 +129,15 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
   welcome: {
-    color: "#F0F8FF",
+    color: "black",
     textAlign: "center",
-    fontSize: 30
+    fontSize: 30,
+    marginTop: 20
   },
-
-  view: {
-    backgroundColor: "white"
-  },
-
   posts: {
-    fontSize: 20,
+    fontSize: 16,
     color: "black"
   },
-
-  cards: {
-    opacity: 40
-  }
 });
 
 export default Home;
