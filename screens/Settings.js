@@ -16,9 +16,11 @@ class Settings extends Component {
 
     render() {
         return (
-            <View>
-            
-            </View>
+            <SafeAreaView>
+                <View>
+
+                </View>
+            </SafeAreaView>
         )
     }
 }

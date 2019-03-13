@@ -8,17 +8,14 @@ import {
     SafeAreaView,
     AsyncStorage
 } from 'react-native';
-import { ButtonGroup, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 const ACCESS_TOKEN = 'access_token';
 const USER_FNAME = 'user_fname';
 const USER_LNAME = 'user_lname';
 
 class Login extends Component {
-    static navigationOptions = {
-        header: null,
-    };
-
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -96,7 +93,8 @@ class Login extends Component {
                         onSubmitEditing={() => { this.emailInput.current.focus(); }}
                         keyboardType="email-address"
                         placeholder='Email'
-                        style={styles.form}>
+                        style={styles.form}
+                        autoCapitalize="none">
                     </TextInput>
                     <TextInput
                         onChangeText={(password) => this.setState({ password })}

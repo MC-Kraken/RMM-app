@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     View,
-    ImageBackground,
     StyleSheet,
     TextInput,
     Text,
@@ -16,47 +15,48 @@ class EditAccount extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Avatar
-                    source={{
-                        uri:
-                            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-                    }}
-                    showEditButton
-                    rounded
-                    size={150}
-                    containerStyle={{ marginTop: 20, marginLeft: 20 }}
-                />
-                <Text style={ styles.name }>Pete Wiley</Text>
-                <Text style={ styles.status }>Maker Pro</Text>
-                <TextInput
-                    underlineColorAndroid='rgb(249, 15, 28)'
-                    keyboardType="default"
-                    placeholder='Change name'
-                    autoCapitalize="words"
-                    style={styles.form}>
-                </TextInput>
-                <TextInput
-                    underlineColorAndroid='rgb(249, 15, 28)'
-                    returnKeyType="next"
-                    keyboardType="email-address"
-                    placeholder='Change email'
-                    autoCapitalize="words"
-                    style={styles.form}>
-                </TextInput>
-                <Button 
-                onPress={() => this.props.navigation.navigate('EditAccount')}
-                containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "black" }}
-                title="Change Password"
-                />
-                <Button 
-                onPress={() => this.props.navigation.navigate('Account')}
-                containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-                title="Done"
-                />
-            </View>
+            <SafeAreaView>
+                <View style={styles.container}>
+                    <Avatar
+                        source={{
+                            uri:
+                                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+                        }}
+                        showEditButton
+                        rounded
+                        size={150}
+                        containerStyle={{ marginTop: 20, marginLeft: 20 }}
+                    />
+                    <Text style={styles.name}>Pete Wiley</Text>
+                    <Text style={styles.status}>Maker Pro</Text>
+                    <TextInput
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        keyboardType="default"
+                        placeholder='Change name'
+                        autoCapitalize="words"
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        keyboardType="email-address"
+                        placeholder='Change email'
+                        autoCapitalize="words"
+                        style={styles.form}>
+                    </TextInput>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('ChangePassword')}
+                        containerStyle={{ marginTop: 45, height: 10 }}
+                        buttonStyle={{ backgroundColor: "black" }}
+                        title="Change Password"
+                    />
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Account')}
+                        containerStyle={{ marginTop: 65, height: 10 }}
+                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+                        title="Done"
+                    />
+                </View>
+            </SafeAreaView>
         )
     }
 }
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        alignItems: 'center',     
+        alignItems: 'center',
     },
     form: {
         height: 40,

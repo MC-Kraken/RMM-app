@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import {
     View,
-    ImageBackground,
     StyleSheet,
-    TextInput,
     Text,
-    SafeAreaView,
-    Image,
-    TouchableOpacity,
     ScrollView,
-    WebView
 } from 'react-native';
 import { Button, Card, ListItem, } from 'react-native-elements';
 
