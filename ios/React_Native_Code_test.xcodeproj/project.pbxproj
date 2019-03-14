@@ -272,6 +272,7 @@
 			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
 			remoteInfo = "cxxreact-tvOS";
 		};
+<<<<<<< HEAD
 		3FAC2D592230679C007F4640 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -294,34 +295,74 @@
 			remoteInfo = "jsi-tvOS";
 		};
 		3FAC2D5F2230679C007F4640 /* PBXContainerItemProxy */ = {
+=======
+		3FDC21C4223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDEBC6D6214B3E7000DD5AC8;
+			remoteInfo = jsi;
+		};
+		3FDC21C6223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDEBC73B214B45A300DD5AC8;
+			remoteInfo = jsiexecutor;
+		};
+		3FDC21C8223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED296FB6214C9A0900B7C4FE;
+			remoteInfo = "jsi-tvOS";
+		};
+		3FDC21CA223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
+<<<<<<< HEAD
 		3FAC2D65223067A3007F4640 /* PBXContainerItemProxy */ = {
+=======
+		3FDC21CE223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXContainerItemProxy;
 			containerPortal = 9036AAC436D44EC69CF1483F /* RNGestureHandler.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNGestureHandler;
 		};
+<<<<<<< HEAD
 		3FAC2D67223067A3007F4640 /* PBXContainerItemProxy */ = {
+=======
+		3FDC21D0223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXContainerItemProxy;
 			containerPortal = 9036AAC436D44EC69CF1483F /* RNGestureHandler.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
+<<<<<<< HEAD
 		3FAC2D6D223067A3007F4640 /* PBXContainerItemProxy */ = {
+=======
+		3FDC21D4223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXContainerItemProxy;
 			containerPortal = C0BBB44C824A494A9DFBBA7C /* RNVectorIcons.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+<<<<<<< HEAD
 		3FAC2D6F223067A3007F4640 /* PBXContainerItemProxy */ = {
+=======
+		3FDC21D6223ACE92004B6E9D /* PBXContainerItemProxy */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXContainerItemProxy;
 			containerPortal = C0BBB44C824A494A9DFBBA7C /* RNVectorIcons.xcodeproj */;
 			proxyType = 2;
@@ -585,10 +626,17 @@
 				2DF0FFE52056DD460020B375 /* libthird-party.a */,
 				2DF0FFE72056DD460020B375 /* libdouble-conversion.a */,
 				2DF0FFE92056DD460020B375 /* libdouble-conversion.a */,
+<<<<<<< HEAD
 				3FAC2D5A2230679C007F4640 /* libjsi.a */,
 				3FAC2D5C2230679C007F4640 /* libjsiexecutor.a */,
 				3FAC2D5E2230679C007F4640 /* libjsi-tvOS.a */,
 				3FAC2D602230679C007F4640 /* libjsiexecutor-tvOS.a */,
+=======
+				3FDC21C5223ACE92004B6E9D /* libjsi.a */,
+				3FDC21C7223ACE92004B6E9D /* libjsiexecutor.a */,
+				3FDC21C9223ACE92004B6E9D /* libjsi-tvOS.a */,
+				3FDC21CB223ACE92004B6E9D /* libjsiexecutor-tvOS.a */,
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -603,7 +651,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		3FAC2D332230679B007F4640 /* Recovered References */ = {
+=======
+		3FDC219A223ACE79004B6E9D /* Recovered References */ = {
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			isa = PBXGroup;
 			children = (
 				CD442821E1274479AFF60069 /* libRNGestureHandler.a */,
@@ -614,20 +666,36 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		3FAC2D61223067A3007F4640 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3FAC2D66223067A3007F4640 /* libRNGestureHandler.a */,
 				3FAC2D68223067A3007F4640 /* libRNGestureHandler-tvOS.a */,
+=======
+		3FDC219B223ACE92004B6E9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FDC21CF223ACE92004B6E9D /* libRNGestureHandler.a */,
+				3FDC21D1223ACE92004B6E9D /* libRNGestureHandler-tvOS.a */,
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		3FAC2D69223067A3007F4640 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3FAC2D6E223067A3007F4640 /* libRNVectorIcons.a */,
 				3FAC2D70223067A3007F4640 /* libRNVectorIcons-tvOS.a */,
+=======
+		3FDC219D223ACE92004B6E9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FDC21D5223ACE92004B6E9D /* libRNVectorIcons.a */,
+				3FDC21D7223ACE92004B6E9D /* libRNVectorIcons-tvOS.a */,
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -711,7 +779,11 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				6613810E06E0440F83CC2232 /* Resources */,
+<<<<<<< HEAD
 				3FAC2D332230679B007F4640 /* Recovered References */,
+=======
+				3FDC219A223ACE79004B6E9D /* Recovered References */,
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -827,7 +899,11 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+<<<<<<< HEAD
 						DevelopmentTeam = W6TUCCCQW8;
+=======
+						DevelopmentTeam = HH9JQQXKT2;
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -901,11 +977,19 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = 3FAC2D61223067A3007F4640 /* Products */;
 					ProjectRef = 9036AAC436D44EC69CF1483F /* RNGestureHandler.xcodeproj */;
 				},
 				{
 					ProductGroup = 3FAC2D69223067A3007F4640 /* Products */;
+=======
+					ProductGroup = 3FDC219B223ACE92004B6E9D /* Products */;
+					ProjectRef = 9036AAC436D44EC69CF1483F /* RNGestureHandler.xcodeproj */;
+				},
+				{
+					ProductGroup = 3FDC219D223ACE92004B6E9D /* Products */;
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 					ProjectRef = C0BBB44C824A494A9DFBBA7C /* RNVectorIcons.xcodeproj */;
 				},
 			);
@@ -1116,6 +1200,7 @@
 			remoteRef = 3DAD3EAA1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+<<<<<<< HEAD
 		3FAC2D5A2230679C007F4640 /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1170,6 +1255,62 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = 3FAC2D6F223067A3007F4640 /* PBXContainerItemProxy */;
+=======
+		3FDC21C5223ACE92004B6E9D /* libjsi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsi.a;
+			remoteRef = 3FDC21C4223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21C7223ACE92004B6E9D /* libjsiexecutor.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsiexecutor.a;
+			remoteRef = 3FDC21C6223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21C9223ACE92004B6E9D /* libjsi-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsi-tvOS.a";
+			remoteRef = 3FDC21C8223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21CB223ACE92004B6E9D /* libjsiexecutor-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsiexecutor-tvOS.a";
+			remoteRef = 3FDC21CA223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21CF223ACE92004B6E9D /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = 3FDC21CE223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21D1223ACE92004B6E9D /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 3FDC21D0223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21D5223ACE92004B6E9D /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = 3FDC21D4223ACE92004B6E9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3FDC21D7223ACE92004B6E9D /* libRNVectorIcons-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNVectorIcons-tvOS.a";
+			remoteRef = 3FDC21D6223ACE92004B6E9D /* PBXContainerItemProxy */;
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
@@ -1421,7 +1562,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = W6TUCCCQW8;
+=======
+				DEVELOPMENT_TEAM = HH9JQQXKT2;
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
@@ -1445,7 +1590,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = W6TUCCCQW8;
+=======
+				DEVELOPMENT_TEAM = HH9JQQXKT2;
+>>>>>>> 53e2b5d79bdbb2ad32bae5d7d94412343c18c5ba
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
