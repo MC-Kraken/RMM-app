@@ -35,8 +35,9 @@ class ChangePassword extends Component {
                     />
                     <Text style={styles.name}>Pete Wiley</Text>
                     <Text style={styles.status}>Maker Pro</Text>
-                    
+                    <KeyboardAvoidingView>
                         <TextInput
+                            
                             onSubmitEditing={() => { this.newInput.current.focus() }}
                             underlineColorAndroid='rgb(249, 15, 28)'
                             keyboardType="default"
@@ -45,6 +46,7 @@ class ChangePassword extends Component {
                             returnKeyType="next"
                             secureTextEntry>
                         </TextInput>
+                    
                         <TextInput
                             onSubmitEditing={() => { this.confirmInput.current.focus() }}
                             ref={this.newInput}
@@ -64,10 +66,10 @@ class ChangePassword extends Component {
                             style={styles.form}
                             secureTextEntry>
                         </TextInput>
-                    
+                    </KeyboardAvoidingView>
                     <Button
                         onPress={() => this.props.navigation.navigate('EditAccount')}
-                        containerStyle={{ marginTop: 40, height: 10 }}
+                        containerStyle={{ marginTop: 45, height: 10 }}
                         buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                         title="Done"
                     />
