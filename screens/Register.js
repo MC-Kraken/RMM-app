@@ -76,7 +76,6 @@ class Register extends Component {
                         returnKeyType="next"
                         keyboardType="default"
                         placeholder='First Name'
-                        autoCapitalize="words"
                         style={styles.form}>
                     </TextInput>
                     <TextInput
@@ -86,7 +85,6 @@ class Register extends Component {
                         returnKeyType="next"
                         keyboardType="default"
                         placeholder='Last Name'
-                        autoCapitalize="words"
                         style={styles.form}>
                     </TextInput>
                     <TextInput
@@ -97,6 +95,7 @@ class Register extends Component {
                         returnKeyType="next"
                         keyboardType="email-address"
                         placeholder='Email'
+                        autoCapitalize= 'none'
                         style={styles.form}>
                     </TextInput>
                     <TextInput
@@ -107,6 +106,7 @@ class Register extends Component {
                         returnKeyType="next"
                         keyboardType="default"
                         placeholder='Password'
+                        autoCapitalize= 'none'
                         style={styles.form}
                         secureTextEntry>
                     </TextInput>
@@ -116,6 +116,7 @@ class Register extends Component {
                         ref={this.confirmInput}
                         keyboardType="default"
                         placeholder='Confirm Password'
+                        autoCapitalize= 'none'
                         style={styles.form}
                         secureTextEntry>
                     </TextInput>

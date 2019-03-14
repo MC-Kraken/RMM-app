@@ -8,11 +8,13 @@ import {
     SafeAreaView,
     AsyncStorage
 } from 'react-native';
-import { ButtonGroup, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 const ACCESS_TOKEN = 'access_token';
 const USER_FNAME = 'user_fname';
 const USER_LNAME = 'user_lname';
+const USER_EMAIL = 'user_email';
+const USER_ID = 'user_id';
 
 class Login extends Component {
     static navigationOptions = {
@@ -29,12 +31,13 @@ class Login extends Component {
         this.emailInput = React.createRef();
     }
 
-    storeUser = async (first, last) => {
+    storeUser = async (first, last, email, _id) => {
         try {
           await AsyncStorage.setItem(USER_FNAME, first);
           await AsyncStorage.setItem(USER_LNAME, last);
-          console.log('Prop was stored: ' + first);
-          console.log('Prop was stored: ' + last);
+          await AsyncStorage.setItem(USER_EMAIL, email);
+          await AsyncStorage.setItem(USER_ID, _id);
+          console.log(`Prop was stored: ${first} ${last} | ${email} ${_id}`);
         } catch (error) {
           console.log(error);
         }
@@ -70,10 +73,9 @@ class Login extends Component {
           } else {
             this.setState({ error: '' });
             let response = JSON.parse(res);
-            console.log(response);
+            let USER = response.user
             this.storeToken(response.token);
-            this.storeUser(response.user.firstName, response.user.lastName);
-            // this.storeUser();
+            this.storeUser(USER.firstName, USER.lastName, USER.email, USER._id);
             this.props.navigation.navigate('Home');
           }
         } catch (errors) {
@@ -96,6 +98,7 @@ class Login extends Component {
                         onSubmitEditing={() => { this.emailInput.current.focus(); }}
                         keyboardType="email-address"
                         placeholder='Email'
+                        autoCapitalize= 'none'
                         style={styles.form}>
                     </TextInput>
                     <TextInput
@@ -104,6 +107,7 @@ class Login extends Component {
                         keyboardType="default"
                         secureTextEntry
                         placeholder='Password'
+                        autoCapitalize= 'none'
                         style={styles.form}>
                     </TextInput>
                     <Button 

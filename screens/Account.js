@@ -11,36 +11,56 @@ import {
 import { Button, Avatar } from 'react-native-elements';
 
 const ACCESS_TOKEN = 'access_token';
-const USER_FNAME = 'user_fname';
-const USER_LNAME = 'user_lname';
+// const USER_FNAME = 'user_fname';
+// const USER_LNAME = 'user_lname';
+// const USER_EMAIL = 'user_email';
+const USER_ID = 'user_id';
 
 class Account extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fname: "",
-            lname: "",
-            access_token: ""
+            firstName: "",
+            lastName: "",
+            email: "",
+            _id: "",
+            accessToken: ""
         };
     }
 
     componentWillMount() {
         this.getToken();
+        console.log('will mount');
     }
 
     componentDidMount() {
         this.getUser();
+        console.log('did mount')
     }
 
     getUser = async () => {
         try {
-          let fname = await AsyncStorage.getItem(USER_FNAME);
-          let lname = await AsyncStorage.getItem(USER_LNAME);
-          console.log(fname + lname)
-          if (!fname || !lname) {
+          // let fname = await AsyncStorage.getItem(USER_FNAME);
+          // let lname = await AsyncStorage.getItem(USER_LNAME);
+          // let email = await AsyncStorage.getItem(USER_EMAIL);
+          let _id = await AsyncStorage.getItem(USER_ID);
+          let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/account/${_id}`, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': this.state.accessToken
+            }
+          });
+          let res = await response.json();
+          if (!_id || !res) {
             console.log('No user found');
           } else {
-            this.setState({ fname, lname });
+            this.setState({
+              firstName: res.firstName, 
+              lastName: res.lastName, 
+              email: res.email,
+              _id})
           }
         } catch (error) {
           console.log('Something went wrong');
@@ -74,10 +94,10 @@ class Account extends Component {
                     size={150}
                     containerStyle={{ marginTop: 20, marginLeft: 20 }}
                 />
-                <Text style={styles.name}>{ `${this.state.fname} ${this.state.lname}` }</Text>
+                <Text style={styles.name}>{ `${this.state.firstName} ${this.state.lastName}` }</Text>
                 <Text style={styles.status}>Maker Pro</Text>
                 <Button
-                    onPress={() => this.props.navigation.navigate('EditAccount')}
+                    onPress={() => this.props.navigation.navigate('EditAccount', {_id: this.state._id})}
                     containerStyle={{ marginTop: 40 }}
                     buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                     title="Edit Account"

@@ -6,13 +6,78 @@ import {
     TextInput,
     Text,
     SafeAreaView,
+    AsyncStorage
 } from 'react-native';
 import { Button, Avatar } from 'react-native-elements';
+
+const ACCESS_TOKEN = 'access_token';
 
 class EditAccount extends Component {
     static navigationOptions = {
         title: 'Edit Account',
     };
+    constructor(props) {
+      super(props);
+      this.state = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        _id: "",
+        accessToken: ""
+      }
+    }
+
+    componentWillMount() {
+      this.getToken();
+      const {navigation} = this.props;
+      const _id = navigation.getParam('_id', 'no id');
+      console.log(_id);
+      this.setState({_id});
+    }
+
+    getToken = async () => {
+      try {
+          let accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
+          if (!accessToken) {
+              console.log('No token found');
+              this.props.navigation.navigate('Login');
+          } else {
+              this.setState({ accessToken });
+          }
+      } catch (error) {
+          console.log('Something went wrong');
+          this.props.navigation.navigate('Login');
+      }
+    }
+
+    updateUser = async () => {
+      try {
+        let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/update/${this.state._id}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': this.state.accessToken
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName
+            }),
+        });
+        let res = await response.text();
+        if (res.errors) {
+            console.log(res.errors)
+            // this.setState({ errors: res.errors });
+        } else {
+            console.log(res);
+            this.props.navigation.navigate('Account');
+        }
+    } catch (errors) {
+        console.log('catch err');
+        console.log(errors);
+    }
+  }
 
     render() {
         return (
@@ -27,21 +92,29 @@ class EditAccount extends Component {
                     size={150}
                     containerStyle={{ marginTop: 20, marginLeft: 20 }}
                 />
-                <Text style={ styles.name }>Pete Wiley</Text>
+                <Text style={ styles.name }>{`${this.state.firstName} ${this.state.lastName}`}</Text>
                 <Text style={ styles.status }>Maker Pro</Text>
                 <TextInput
+                    onChangeText={(firstName) => this.setState({ firstName })}
                     underlineColorAndroid='rgb(249, 15, 28)'
                     keyboardType="default"
-                    placeholder='Change name'
-                    autoCapitalize="words"
+                    placeholder='Update First Name'
                     style={styles.form}>
                 </TextInput>
                 <TextInput
+                    onChangeText={(lastName) => this.setState({ lastName })}
+                    underlineColorAndroid='rgb(249, 15, 28)'
+                    keyboardType="default"
+                    placeholder='Update Last Name'
+                    style={styles.form}>
+                </TextInput>
+                <TextInput
+                    onChangeText={(email) => this.setState({ email })}
                     underlineColorAndroid='rgb(249, 15, 28)'
                     returnKeyType="next"
                     keyboardType="email-address"
-                    placeholder='Change email'
-                    autoCapitalize="words"
+                    placeholder='Update Email'
+                    autoCapitalize="none"
                     style={styles.form}>
                 </TextInput>
                 <Button 
@@ -51,7 +124,7 @@ class EditAccount extends Component {
                 title="Change Password"
                 />
                 <Button 
-                onPress={() => this.props.navigation.navigate('Account')}
+                onPress={this.updateUser}
                 containerStyle={{ marginTop: 40 }}
                 buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                 title="Done"
