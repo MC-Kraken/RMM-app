@@ -7,6 +7,7 @@ import {
     Text,
     SafeAreaView,
     ScrollView,
+    KeyboardAvoidingView
 } from 'react-native';
 import { Button, CheckBox } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -14,7 +15,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 class Register extends Component {
-
     constructor(props) {
         super(props)
 
@@ -27,7 +27,7 @@ class Register extends Component {
             password2: "",
             errors: []
         }
-
+        this.lnameInput = React.createRef();
         this.emailInput = React.createRef();
         this.passwordInput = React.createRef();
         this.confirmInput = React.createRef();
@@ -69,57 +69,57 @@ class Register extends Component {
                 <SafeAreaView style={styles.container}>
                     <ImageBackground style={styles.bgImg} source={require('../assets/logo.png')}></ImageBackground>
                     <Errors errors={this.state.errors} />
-                    <TextInput
-                        onChangeText={(Fname) => this.setState({ Fname })}
-                        underlineColorAndroid='rgb(249, 15, 28)'
-                        onSubmitEditing={() => { this.emailInput.current.focus(); }}
-                        returnKeyType="next"
-                        keyboardType="default"
-                        placeholder='First Name'
-                        style={styles.form}>
-                    </TextInput>
-                    <TextInput
-                        onChangeText={(Lname) => this.setState({ Lname })}
-                        underlineColorAndroid='rgb(249, 15, 28)'
-                        onSubmitEditing={() => { this.emailInput.current.focus(); }}
-                        returnKeyType="next"
-                        keyboardType="default"
-                        placeholder='Last Name'
-                        style={styles.form}>
-                    </TextInput>
-                    <TextInput
-                        onChangeText={(email) => this.setState({ email })}
-                        underlineColorAndroid='rgb(249, 15, 28)'
-                        ref={this.emailInput}
-                        onSubmitEditing={() => { this.passwordInput.current.focus(); }}
-                        returnKeyType="next"
-                        keyboardType="email-address"
-                        placeholder='Email'
-                        autoCapitalize= 'none'
-                        style={styles.form}>
-                    </TextInput>
-                    <TextInput
-                        onChangeText={(password) => this.setState({ password })}
-                        underlineColorAndroid='rgb(249, 15, 28)'
-                        ref={this.passwordInput}
-                        onSubmitEditing={() => { this.confirmInput.current.focus(); }}
-                        returnKeyType="next"
-                        keyboardType="default"
-                        placeholder='Password'
-                        autoCapitalize= 'none'
-                        style={styles.form}
-                        secureTextEntry>
-                    </TextInput>
-                    <TextInput
-                        onChangeText={(password2) => this.setState({ password2 })}
-                        underlineColorAndroid='rgb(249, 15, 28)'
-                        ref={this.confirmInput}
-                        keyboardType="default"
-                        placeholder='Confirm Password'
-                        autoCapitalize= 'none'
-                        style={styles.form}
-                        secureTextEntry>
-                    </TextInput>
+                    <KeyboardAvoidingView>
+                        <TextInput
+                            onChangeText={(Fname) => this.setState({ Fname })}
+                            underlineColorAndroid='rgb(249, 15, 28)'
+                            onSubmitEditing={() => { this.lnameInput.current.focus() }}
+                            returnKeyType="next"
+                            keyboardType="default"
+                            placeholder='First Name'
+                            style={styles.form}>
+                        </TextInput>
+                        <TextInput
+                            onChangeText={(Lname) => this.setState({ Lname })}
+                            underlineColorAndroid='rgb(249, 15, 28)'
+                            onSubmitEditing={() => { this.emailInput.current.focus() }}
+                            returnKeyType="next"
+                            keyboardType="default"
+                            placeholder='Last Name'
+                            style={styles.form}
+                            ref={this.lnameInput}>
+                        </TextInput>
+                        <TextInput
+                            onChangeText={(email) => this.setState({ email })}
+                            underlineColorAndroid='rgb(249, 15, 28)'
+                            ref={this.emailInput}
+                            onSubmitEditing={() => { this.passwordInput.current.focus() }}
+                            returnKeyType="next"
+                            keyboardType="email-address"
+                            placeholder='Email'
+                            style={styles.form}>
+                        </TextInput>
+                        <TextInput
+                            onChangeText={(password) => this.setState({ password })}
+                            underlineColorAndroid='rgb(249, 15, 28)'
+                            ref={this.passwordInput}
+                            onSubmitEditing={() => { this.confirmInput.current.focus() }}
+                            returnKeyType="next"
+                            keyboardType="default"
+                            placeholder='Password'
+                            style={styles.form}
+                            secureTextEntry>
+                        </TextInput>
+                        <TextInput
+                            onChangeText={(password2) => this.setState({ password2 })}
+                            underlineColorAndroid='rgb(249, 15, 28)'
+                            ref={this.confirmInput}
+                            keyboardType="default"
+                            placeholder='Confirm Password'
+                            style={styles.form}
+                            secureTextEntry>
+                        </TextInput>
+                    </KeyboardAvoidingView>
                     <View>
                         <CheckBox
                             onPress={() => this.setState({ checked: !this.state.checked })}

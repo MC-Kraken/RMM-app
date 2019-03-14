@@ -17,10 +17,7 @@ const USER_EMAIL = 'user_email';
 const USER_ID = 'user_id';
 
 class Login extends Component {
-    static navigationOptions = {
-        header: null,
-    };
-
+    
     constructor(props) {
         super(props)
         this.state = {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
     View,
-    ImageBackground,
     StyleSheet,
-    TextInput,
     Text,
     SafeAreaView,
     AsyncStorage
@@ -17,6 +15,10 @@ const ACCESS_TOKEN = 'access_token';
 const USER_ID = 'user_id';
 
 class Account extends Component {
+    static navigationOptions = {
+        title: 'Account',
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -63,9 +65,9 @@ class Account extends Component {
               _id})
           }
         } catch (error) {
-          console.log('Something went wrong');
+            console.log('Something went wrong');
         }
-      }
+    }
 
     getToken = async () => {
         try {
@@ -84,26 +86,28 @@ class Account extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Avatar
-                    source={{
-                        uri:
-                            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-                    }}
-                    rounded
-                    size={150}
-                    containerStyle={{ marginTop: 20, marginLeft: 20 }}
-                />
-                <Text style={styles.name}>{ `${this.state.firstName} ${this.state.lastName}` }</Text>
-                <Text style={styles.status}>Maker Pro</Text>
-                <Button
-                    onPress={() => this.props.navigation.navigate('EditAccount', {_id: this.state._id})}
-                    containerStyle={{ marginTop: 40 }}
-                    buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-                    title="Edit Account"
-                />
-            </View>
-
+            <SafeAreaView>
+                <View style={styles.container}>
+                    <Avatar
+                        source={{
+                            uri:
+                                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
+                        }}
+                        rounded
+                        size={150}
+                        containerStyle={{ marginTop: 20, marginLeft: 20 }}
+                    />
+                    <Text style={styles.name}>{`${this.state.firstName} ${this.state.lastName}`}</Text>
+                    <Text style={styles.status}>Maker Pro</Text>
+                    <Text style={styles.email}>Email: email goes here</Text>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('EditAccount', {_id: this.state._id})}
+                        containerStyle={{ marginTop: 200, height: 10 }}
+                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+                        title="Edit Account"
+                    />
+                </View>
+            </SafeAreaView>
         )
     }
 }
@@ -111,17 +115,17 @@ class Account extends Component {
 const styles = StyleSheet.create({
     name: {
         fontSize: 40,
-        marginLeft: 10,
         color: 'black'
     },
     status: {
         fontSize: 30,
-        marginLeft: 10,
         fontStyle: 'italic'
+    },
+    email: {
+        margin: 10
     },
     container: {
         flex: 1,
-
         alignItems: 'center',
     }
 })

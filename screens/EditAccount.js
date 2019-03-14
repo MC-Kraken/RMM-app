@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     View,
-    ImageBackground,
     StyleSheet,
     TextInput,
     Text,
@@ -81,7 +80,8 @@ class EditAccount extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <SafeAreaView>
+              <View style={styles.container}>
                 <Avatar
                     source={{
                         uri:
@@ -118,7 +118,7 @@ class EditAccount extends Component {
                     style={styles.form}>
                 </TextInput>
                 <Button 
-                onPress={() => this.props.navigation.navigate('EditAccount')}
+                onPress={() => this.props.navigation.navigate('ChangePassword')}
                 containerStyle={{ marginTop: 40 }}
                 buttonStyle={{ backgroundColor: "black" }}
                 title="Change Password"
@@ -130,6 +130,7 @@ class EditAccount extends Component {
                 title="Done"
                 />
             </View>
+            </SafeAreaView>
         )
     }
 }
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        alignItems: 'center',     
+        alignItems: 'center',
     },
     form: {
         height: 40,
