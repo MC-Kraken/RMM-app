@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {SafeAreaView} from 'react-navigation'
 import { Button, Avatar } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ACCESS_TOKEN = 'access_token';
 const USER_FNAME = 'user_fname';
@@ -15,9 +16,17 @@ const USER_EMAIL = 'user_email';
 const USER_ID = 'user_id';
 
 class Account extends Component {
-    static navigationOptions = {
-        title: 'Account',
-    };
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerLeft:
+                <Icon
+                    name="bars"
+                    size={30}
+                    style={{ paddingLeft: 10 }}
+                    onPress={() => navigation.openDrawer()} />,
+            title: "Account"
+        }
+    }
 
     constructor(props) {
         super(props);
@@ -82,11 +91,10 @@ class Account extends Component {
 
     render() {
         return (
-                <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.container}>
                     <Avatar
                         source={{
-                            uri:
-                                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
+                            uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
                         }}
                         rounded
                         size={150}
@@ -102,11 +110,19 @@ class Account extends Component {
                           lastName: this.state.lastName,
                           email: this.state.email
                         })}
-                        containerStyle={{ marginTop: 200 }}
-                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+                        containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
                         title="Edit Account"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
-                </SafeAreaView>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Pricing')}
+                        containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
+                        title="Purchase Membership"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                    />
+            </SafeAreaView>
         )
     }
 }

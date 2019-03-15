@@ -12,10 +12,19 @@ import {
 import { Button, Card } from "react-native-elements";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 class Home extends Component {
-  static navigationOptions = {
-    title: 'Home',
-  };
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerLeft:
+        <Icon
+          name="bars"
+          size={30}
+          style={{ paddingLeft: 10 }}
+          onPress={() => navigation.openDrawer()} />,
+      title: "Home"
+    }
+  }
 
   render() {
     return (
@@ -31,7 +40,7 @@ class Home extends Component {
 
             <Card
               title="25% off Maker Membership"
-              titleStyle={{ fontSize: 25 }}
+              titleStyle={{ fontSize: 25, padding: 1 }}
               containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/RMMpost.jpg")}
               dividerStyle={{ borderWidth: 4, borderColor: 'black' }}
@@ -54,7 +63,7 @@ class Home extends Component {
             </Card>
             <Card
               title="Smarter Bham & BASE"
-              titleStyle={{ fontSize: 25 }}
+              titleStyle={{ fontSize: 25, padding: 1 }}
               containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/baseimg.png")}
             >
@@ -67,7 +76,7 @@ class Home extends Component {
             </Card>
             <Card
               title="18 Channels"
-              titleStyle={{ fontSize: 25 }}
+              titleStyle={{ fontSize: 25, padding: 1 }}
               containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/veml.jpg")}
             >
@@ -81,7 +90,7 @@ class Home extends Component {
             </Card>
             <Card
               title="Laser Cutter Fundraiser"
-              titleStyle={{ fontSize: 25 }}
+              titleStyle={{ fontSize: 25, padding: 1 }}
               containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/fundraiser.jpg")}
             >
@@ -94,7 +103,7 @@ class Home extends Component {
             </Card>
             <Card
               title="MR101 Intro to Quadcopters, Multi-rotors and Drones"
-              titleStyle={{ fontSize: 25 }}
+              titleStyle={{ fontSize: 25, padding: 1 }}
               containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/drone.jpg")}
             >

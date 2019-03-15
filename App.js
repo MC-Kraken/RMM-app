@@ -9,6 +9,8 @@ import { Avatar } from 'react-native-elements';
 import Classes from './screens/Classes';
 import Account from './screens/Account';
 import Register from './screens/Register';
+import Pricing from './screens/Pricing';
+import ChargeWebView from './screens/ChargeWebView';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MyWeb from './links/MyWeb';
 import Sept from './links/Sept';
@@ -16,6 +18,7 @@ import Aug from './links/Aug';
 import Weld from './links/Weld';
 import Pie from './links/Pie';
 import Oct from './links/Oct';
+
 
 const HomeStack = createStackNavigator(
   {
@@ -49,18 +52,13 @@ const AccountStack = createStackNavigator(
   {
     Account,
     EditAccount,
-    ChangePassword
+    ChangePassword,
+    Pricing,
+    ChargeWebView
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded
@@ -86,15 +84,8 @@ const ClassesStack = createStackNavigator(
     Oct
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded
@@ -114,15 +105,8 @@ const SettingsStack = createStackNavigator(
     Settings
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded

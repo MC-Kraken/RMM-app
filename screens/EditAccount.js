@@ -5,9 +5,11 @@ import {
     TextInput,
     Text,
     SafeAreaView,
-    AsyncStorage
+    AsyncStorage,
 } from 'react-native';
 import { Button, Avatar } from 'react-native-elements';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ACCESS_TOKEN = 'access_token';
 
@@ -15,6 +17,7 @@ class EditAccount extends Component {
     static navigationOptions = {
         title: 'Edit Account',
     };
+    
     constructor(props) {
       super(props);
       this.state = {
@@ -40,107 +43,160 @@ class EditAccount extends Component {
     }
 
     getToken = async () => {
-      try {
-          let accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
-          if (!accessToken) {
-              console.log('No token found');
-              this.props.navigation.navigate('Login');
-          } else {
-              this.setState({ accessToken });
-          }
-      } catch (error) {
-          console.log('Something went wrong');
-          this.props.navigation.navigate('Login');
-      }
+        try {
+            let accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
+            if (!accessToken) {
+                console.log('No token found');
+                this.props.navigation.navigate('Login');
+            } else {
+                this.setState({ accessToken });
+            }
+        } catch (error) {
+            console.log('Something went wrong');
+            this.props.navigation.navigate('Login');
+        }
     }
 
     updateUser = async () => {
-      try {
-        let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/update/${this.state._id}`, {
-            method: 'PUT',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': this.state.accessToken
-            },
-            body: JSON.stringify({
-                email: this.state.editEmail,
-                firstName: this.state.editFName,
-                lastName: this.state.editLName
-            }),
-        });
-        let res = await response.text();
-        if (res.errors) {
-            console.log(res.errors)
-            // this.setState({ errors: res.errors });
-        } else {
-            console.log(res);
-            this.props.navigation.navigate('Account');
+        try {
+            let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/update/${this.state._id}`, {
+                method: 'PUT',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': this.state.accessToken
+                },
+                body: JSON.stringify({
+                    email: this.state.email,
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName
+                }),
+            });
+            let res = await response.text();
+            if (res.errors) {
+                console.log(res.errors)
+                // this.setState({ errors: res.errors });
+            } else {
+                console.log(res);
+                this.props.navigation.navigate('Account');
+            }
+        } catch (errors) {
+            console.log('catch err');
+            console.log(errors);
         }
-    } catch (errors) {
-        console.log('catch err');
-        console.log(errors);
     }
-  }
 
     render() {
         return (
-              <SafeAreaView style={styles.container}>
-                <Avatar
-                    source={{
-                        uri:
-                            'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-                    }}
-                    showEditButton
-                    rounded
-                    size={150}
-                    containerStyle={{ marginTop: 20, marginLeft: 20 }}
-                />
-                <Text style={ styles.name }>{`${this.state.firstName} ${this.state.lastName}`}</Text>
-                <Text style={ styles.status }>Maker Pro</Text>
-                <Text style={styles.email}>{this.state.email}</Text>
-                <TextInput
-                    onChangeText={editFName => this.setState({ editFName })}
-                    underlineColorAndroid='rgb(249, 15, 28)'
-                    keyboardType="default"
-                    placeholder='Update First Name'
-                    style={styles.form}>
-                </TextInput>
-                <TextInput
-                    onChangeText={editLName => this.setState({ editLName })}
-                    underlineColorAndroid='rgb(249, 15, 28)'
-                    keyboardType="default"
-                    placeholder='Update Last Name'
-                    style={styles.form}>
-                </TextInput>
-                <TextInput
-                    onChangeText={editEmail => this.setState({ editEmail })}
-                    underlineColorAndroid='rgb(249, 15, 28)'
-                    returnKeyType="next"
-                    keyboardType="email-address"
-                    placeholder='Update Email'
-                    autoCapitalize="none"
-                    style={styles.form}>
-                </TextInput>
-                <Button 
-                onPress={() => this.props.navigation.navigate('ChangePassword')}
-                containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "black" }}
-                title="Change Password"
-                />
-                <Button 
-                onPress={this.updateUser}
-                containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-                title="Done"
-                />
-                <Button 
-                onPress={() => this.props.navigation.navigate('Account')}
-                containerStyle={{ marginTop: 40 }}
-                buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-                title="Cancel"
-                />
-            </SafeAreaView>
+            //   <SafeAreaView style={styles.container}>
+            //     <Avatar
+            //         source={{
+            //             uri:
+            //                 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+            //         }}
+            //         showEditButton
+            //         rounded
+            //         size={150}
+            //         containerStyle={{ marginTop: 20, marginLeft: 20 }}
+            //     />
+            //     <Text style={ styles.name }>{`${this.state.firstName} ${this.state.lastName}`}</Text>
+            //     <Text style={ styles.status }>Maker Pro</Text>
+                
+            //     <TextInput
+            //         onChangeText={editFName => this.setState({ editFName })}
+            //         underlineColorAndroid='rgb(249, 15, 28)'
+            //         keyboardType="default"
+            //         placeholder='Update First Name'
+            //         style={styles.form}>
+            //     </TextInput>
+            //     <TextInput
+            //         onChangeText={editLName => this.setState({ editLName })}
+            //         underlineColorAndroid='rgb(249, 15, 28)'
+            //         keyboardType="default"
+            //         placeholder='Update Last Name'
+            //         style={styles.form}>
+            //     </TextInput>
+            //     <TextInput
+            //         onChangeText={editEmail => this.setState({ editEmail })}
+            //         underlineColorAndroid='rgb(249, 15, 28)'
+            //         returnKeyType="next"
+            //         keyboardType="email-address"
+            //         placeholder='Update Email'
+            //         autoCapitalize="none"
+            //         style={styles.form}>
+            //     </TextInput>
+            //     <Button 
+            //     onPress={() => this.props.navigation.navigate('ChangePassword')}
+            //     containerStyle={{ marginTop: 40 }}
+            //     buttonStyle={{ backgroundColor: "black" }}
+            //     title="Change Password"
+            //     />
+            //     <Button 
+            //     onPress={this.updateUser}
+            //     containerStyle={{ marginTop: 40 }}
+            //     buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+            //     title="Done"
+            //     />
+            //     <Button 
+            //     onPress={() => this.props.navigation.navigate('Account')}
+            //     containerStyle={{ marginTop: 40 }}
+            //     buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+            //     title="Cancel"
+            //     />
+            // </SafeAreaView>
+            <KeyboardAwareScrollView>
+                <SafeAreaView style={styles.container}>
+                    <Avatar
+                        source={{
+                            uri:
+                                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+                        }}
+                        showEditButton
+                        rounded
+                        size={150}
+                        containerStyle={{ marginTop: 20, marginLeft: 20 }}
+                    />
+                    <Text style={styles.name}>{`${this.state.firstName} ${this.state.lastName}`}</Text>
+                    <Text style={styles.status}>Maker Pro</Text>
+                    <Text style={styles.email}>{this.state.email}</Text>
+                    <TextInput
+                        onChangeText={editFName => this.setState({ editFName })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        keyboardType="default"
+                        placeholder='Update First Name'
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={editLName => this.setState({ editLName })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        keyboardType="default"
+                        placeholder='Update Last Name'
+                        style={styles.form}>
+                    </TextInput>
+                    <TextInput
+                        onChangeText={editEmail => this.setState({ editEmail })}
+                        underlineColorAndroid='rgb(249, 15, 28)'
+                        keyboardType="email-address"
+                        placeholder='Update Email'
+                        autoCapitalize="none"
+                        style={styles.form}>
+                    </TextInput>
+                    <Button
+                        onPress={this.updateUser}
+                        containerStyle={{ marginTop: 40, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
+                        title="Submit"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                    />
+                    <Button
+                        onPress={() => this.props.navigation.navigate('ChangePassword')}
+                        containerStyle={{ marginTop: 10, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
+                        title="Change Password"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                    />
+                </SafeAreaView>
+            </KeyboardAwareScrollView>
         )
     }
 }

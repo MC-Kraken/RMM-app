@@ -5,9 +5,9 @@ import {
     TextInput,
     Text,
     SafeAreaView,
-    KeyboardAvoidingView
 } from 'react-native';
 import { Button, Avatar } from 'react-native-elements';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 class ChangePassword extends Component {
     static navigationOptions = {
@@ -22,7 +22,8 @@ class ChangePassword extends Component {
 
     render() {
         return (
-            <SafeAreaView>
+            // <SafeAreaView>
+            <KeyboardAwareScrollView>
                 <View style={styles.container}>
                     <Avatar
                         source={{
@@ -35,9 +36,7 @@ class ChangePassword extends Component {
                     />
                     <Text style={styles.name}>Pete Wiley</Text>
                     <Text style={styles.status}>Maker Pro</Text>
-                    <KeyboardAvoidingView>
                         <TextInput
-                            
                             onSubmitEditing={() => { this.newInput.current.focus() }}
                             underlineColorAndroid='rgb(249, 15, 28)'
                             keyboardType="default"
@@ -46,7 +45,6 @@ class ChangePassword extends Component {
                             returnKeyType="next"
                             secureTextEntry>
                         </TextInput>
-                    
                         <TextInput
                             onSubmitEditing={() => { this.confirmInput.current.focus() }}
                             ref={this.newInput}
@@ -56,7 +54,7 @@ class ChangePassword extends Component {
                             style={styles.form}
                             returnKeyType="next"
                             secureTextEntry>
-                        </TextInput> 
+                        </TextInput>
                         <TextInput
                             ref={this.confirmInput}
                             onSubmitEditing={() => { this.newInput.current.focus(); }}
@@ -66,15 +64,16 @@ class ChangePassword extends Component {
                             style={styles.form}
                             secureTextEntry>
                         </TextInput>
-                    </KeyboardAvoidingView>
                     <Button
                         onPress={() => this.props.navigation.navigate('EditAccount')}
-                        containerStyle={{ marginTop: 45, height: 10 }}
-                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+                        containerStyle={{ marginTop: 60, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
                         title="Done"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
                 </View>
-            </SafeAreaView>
+            </KeyboardAwareScrollView>
+            // </SafeAreaView>
         )
     }
 }

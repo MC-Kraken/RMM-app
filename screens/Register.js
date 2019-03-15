@@ -10,7 +10,7 @@ import {
     KeyboardAvoidingView
 } from 'react-native';
 import { Button, CheckBox } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 
