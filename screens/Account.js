@@ -7,6 +7,7 @@ import {
     AsyncStorage
 } from 'react-native';
 import { Button, Avatar } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ACCESS_TOKEN = 'access_token';
 // const USER_FNAME = 'user_fname';
@@ -15,9 +16,17 @@ const ACCESS_TOKEN = 'access_token';
 const USER_ID = 'user_id';
 
 class Account extends Component {
-    static navigationOptions = {
-        title: 'Account',
-    };
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerLeft:
+                <Icon
+                    name="bars"
+                    size={30}
+                    style={{ paddingLeft: 10 }}
+                    onPress={() => navigation.openDrawer()} />,
+            title: "Account"
+        }
+    }
 
     constructor(props) {
         super(props);
@@ -42,28 +51,29 @@ class Account extends Component {
 
     getUser = async () => {
         try {
-          // let fname = await AsyncStorage.getItem(USER_FNAME);
-          // let lname = await AsyncStorage.getItem(USER_LNAME);
-          // let email = await AsyncStorage.getItem(USER_EMAIL);
-          let _id = await AsyncStorage.getItem(USER_ID);
-          let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/account/${_id}`, {
-            method: 'GET',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              'Authorization': this.state.accessToken
+            // let fname = await AsyncStorage.getItem(USER_FNAME);
+            // let lname = await AsyncStorage.getItem(USER_LNAME);
+            // let email = await AsyncStorage.getItem(USER_EMAIL);
+            let _id = await AsyncStorage.getItem(USER_ID);
+            let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/account/${_id}`, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': this.state.accessToken
+                }
+            });
+            let res = await response.json();
+            if (!_id || !res) {
+                console.log('No user found');
+            } else {
+                this.setState({
+                    firstName: res.firstName,
+                    lastName: res.lastName,
+                    email: res.email,
+                    _id
+                })
             }
-          });
-          let res = await response.json();
-          if (!_id || !res) {
-            console.log('No user found');
-          } else {
-            this.setState({
-              firstName: res.firstName, 
-              lastName: res.lastName, 
-              email: res.email,
-              _id})
-          }
         } catch (error) {
             console.log('Something went wrong');
         }
@@ -86,12 +96,11 @@ class Account extends Component {
 
     render() {
         return (
-            <SafeAreaView>
+            // <SafeAreaView >
                 <View style={styles.container}>
                     <Avatar
                         source={{
-                            uri:
-                                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
+                            uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
                         }}
                         rounded
                         size={150}
@@ -101,13 +110,14 @@ class Account extends Component {
                     <Text style={styles.status}>Maker Pro</Text>
                     <Text style={styles.email}>Email: email goes here</Text>
                     <Button
-                        onPress={() => this.props.navigation.navigate('EditAccount', {_id: this.state._id})}
-                        containerStyle={{ marginTop: 200, height: 10 }}
-                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-                        title="Edit Account"
-                    />
+                            onPress={() => this.props.navigation.navigate('EditAccount')}
+                            containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                            buttonStyle={{ backgroundColor: "white" }}
+                            title="Edit Account"
+                            titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                        />
                 </View>
-            </SafeAreaView>
+            // </SafeAreaView>
         )
     }
 }

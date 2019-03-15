@@ -17,6 +17,7 @@ import Weld from './links/Weld';
 import Pie from './links/Pie';
 import Oct from './links/Oct';
 
+
 const HomeStack = createStackNavigator(
   {
     Home
@@ -52,15 +53,8 @@ const AccountStack = createStackNavigator(
     ChangePassword
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded
@@ -86,15 +80,8 @@ const ClassesStack = createStackNavigator(
     Oct
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded
@@ -114,15 +101,8 @@ const SettingsStack = createStackNavigator(
     Settings
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
+    defaultNavigationOptions: () => {
       return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded

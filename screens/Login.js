@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 
+
 const ACCESS_TOKEN = 'access_token';
 const USER_FNAME = 'user_fname';
 const USER_LNAME = 'user_lname';
@@ -110,8 +111,8 @@ class Login extends Component {
                     <Button 
                         buttonStyle={{ width: 200, height: 40, marginTop: 20, backgroundColor: 'transparent', borderColor: 'white' }}
                         title="Login"
-                        onPress={ this.userLogin }
-                        // onPress= {() => this.props.navigation.navigate('Home')}
+                        // onPress={ this.userLogin }
+                        onPress= {() => this.props.navigation.navigate('Home')}
                         containerViewStyle={{ borderColor: 'white' }}
                         rounded={ true }
                         type="outline"
