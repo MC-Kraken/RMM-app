@@ -110,12 +110,19 @@ class Account extends Component {
                     <Text style={styles.status}>Maker Pro</Text>
                     <Text style={styles.email}>Email: email goes here</Text>
                     <Button
-                            onPress={() => this.props.navigation.navigate('EditAccount')}
-                            containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                            buttonStyle={{ backgroundColor: "white" }}
-                            title="Edit Account"
-                            titleStyle={{ color: 'rgb(249, 15, 28)' }}
-                        />
+                        onPress={() => this.props.navigation.navigate('EditAccount')}
+                        containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
+                        title="Edit Account"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                    />
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Pricing')}
+                        containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
+                        buttonStyle={{ backgroundColor: "white" }}
+                        title="Purchase Membership"
+                        titleStyle={{ color: 'rgb(249, 15, 28)' }}
+                    />
                 </View>
             // </SafeAreaView>
         )

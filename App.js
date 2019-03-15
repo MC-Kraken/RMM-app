@@ -9,6 +9,8 @@ import { Avatar } from 'react-native-elements';
 import Classes from './screens/Classes';
 import Account from './screens/Account';
 import Register from './screens/Register';
+import Pricing from './screens/Pricing';
+import ChargeWebView from './screens/ChargeWebView';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MyWeb from './links/MyWeb';
 import Sept from './links/Sept';
@@ -50,7 +52,9 @@ const AccountStack = createStackNavigator(
   {
     Account,
     EditAccount,
-    ChangePassword
+    ChangePassword,
+    Pricing,
+    ChargeWebView
   },
   {
     defaultNavigationOptions: () => {
@@ -103,6 +107,34 @@ const SettingsStack = createStackNavigator(
   {
     defaultNavigationOptions: () => {
       return {
+        headerRight:
+          <Avatar
+            rounded
+            containerStyle={{ marginRight: 10 }}
+            source={{
+              uri:
+                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+            }}
+          />
+      };
+    }
+  }
+)
+const PricingStack = createStackNavigator(
+  {
+    Pricing,
+    ChargeWebView
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => {
+      return {
+        headerLeft:
+          <Icon
+            name="bars"
+            size={30}
+            style={{ paddingLeft: 10 }}
+            onPress={() => navigation.openDrawer()} />,
+
         headerRight:
           <Avatar
             rounded
