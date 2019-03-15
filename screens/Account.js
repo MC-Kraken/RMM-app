@@ -106,6 +106,12 @@ class Account extends Component {
                         buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                         title="Edit Account"
                     />
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Pricing')}
+                        containerStyle={{ marginTop: 200, height: 10 }}
+                        buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
+                        title="Purchase Membership"
+                    />
                 </View>
             </SafeAreaView>
         )
