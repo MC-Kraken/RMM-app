@@ -5,6 +5,10 @@ import { PricingCard, Overlay } from 'react-native-elements';
 
 
 export default class Pricing extends Component {
+  static navigationOptions = {
+    title: 'Membership',
+  };
+  
   constructor(props){
     super(props)
     this.state={

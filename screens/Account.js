@@ -96,8 +96,7 @@ class Account extends Component {
 
     render() {
         return (
-            // <SafeAreaView >
-                <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                     <Avatar
                         source={{
                             uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
@@ -123,8 +122,7 @@ class Account extends Component {
                         title="Purchase Membership"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
-                </View>
-            // </SafeAreaView>
+            </SafeAreaView>
         )
     }
 }

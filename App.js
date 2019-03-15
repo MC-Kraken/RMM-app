@@ -120,34 +120,6 @@ const SettingsStack = createStackNavigator(
     }
   }
 )
-const PricingStack = createStackNavigator(
-  {
-    Pricing,
-    ChargeWebView
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerLeft:
-          <Icon
-            name="bars"
-            size={30}
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()} />,
-
-        headerRight:
-          <Avatar
-            rounded
-            containerStyle={{ marginRight: 10 }}
-            source={{
-              uri:
-                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-            }}
-          />
-      };
-    }
-  }
-)
 
 const DrawerNavigator = createDrawerNavigator(
   {

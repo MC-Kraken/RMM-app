@@ -17,6 +17,7 @@ class EditAccount extends Component {
     static navigationOptions = {
         title: 'Edit Account',
     };
+    
     constructor(props) {
         super(props);
         this.state = {
