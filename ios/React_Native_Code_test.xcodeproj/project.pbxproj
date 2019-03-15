@@ -1434,7 +1434,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "rmm-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "rmm-application";
 				PRODUCT_NAME = React_Native_Code_test;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1458,7 +1458,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "rmm-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "rmm-application";
 				PRODUCT_NAME = React_Native_Code_test;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

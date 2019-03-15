@@ -43,7 +43,6 @@ class Login extends Component {
     storeToken = async (token) => {
         try {
           await AsyncStorage.setItem(ACCESS_TOKEN, token);
-          console.log('Token was stored');
         } catch (error) {
           console.log(error);
         }

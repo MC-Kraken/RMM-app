@@ -3,15 +3,15 @@ import {
     View,
     StyleSheet,
     Text,
-    SafeAreaView,
     AsyncStorage
 } from 'react-native';
+import {SafeAreaView} from 'react-navigation'
 import { Button, Avatar } from 'react-native-elements';
 
 const ACCESS_TOKEN = 'access_token';
-// const USER_FNAME = 'user_fname';
-// const USER_LNAME = 'user_lname';
-// const USER_EMAIL = 'user_email';
+const USER_FNAME = 'user_fname';
+const USER_LNAME = 'user_lname';
+const USER_EMAIL = 'user_email';
 const USER_ID = 'user_id';
 
 class Account extends Component {
@@ -32,19 +32,14 @@ class Account extends Component {
 
     componentWillMount() {
         this.getToken();
-        console.log('will mount');
     }
 
     componentDidMount() {
         this.getUser();
-        console.log('did mount')
     }
 
     getUser = async () => {
         try {
-          // let fname = await AsyncStorage.getItem(USER_FNAME);
-          // let lname = await AsyncStorage.getItem(USER_LNAME);
-          // let email = await AsyncStorage.getItem(USER_EMAIL);
           let _id = await AsyncStorage.getItem(USER_ID);
           let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/account/${_id}`, {
             method: 'GET',
@@ -58,11 +53,12 @@ class Account extends Component {
           if (!_id || !res) {
             console.log('No user found');
           } else {
+            console.log(res);
             this.setState({
               firstName: res.firstName, 
               lastName: res.lastName, 
               email: res.email,
-              _id})
+              _id: _id})
           }
         } catch (error) {
             console.log('Something went wrong');
@@ -86,8 +82,7 @@ class Account extends Component {
 
     render() {
         return (
-            <SafeAreaView>
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     <Avatar
                         source={{
                             uri:
@@ -99,15 +94,19 @@ class Account extends Component {
                     />
                     <Text style={styles.name}>{`${this.state.firstName} ${this.state.lastName}`}</Text>
                     <Text style={styles.status}>Maker Pro</Text>
-                    <Text style={styles.email}>Email: email goes here</Text>
+                    <Text style={styles.email}>{this.state.email}</Text>
                     <Button
-                        onPress={() => this.props.navigation.navigate('EditAccount', {_id: this.state._id})}
-                        containerStyle={{ marginTop: 200, height: 10 }}
+                        onPress={() => this.props.navigation.navigate('EditAccount', {
+                          _id: this.state._id,
+                          firstName: this.state.firstName,
+                          lastName: this.state.lastName,
+                          email: this.state.email
+                        })}
+                        containerStyle={{ marginTop: 200 }}
                         buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
                         title="Edit Account"
                     />
-                </View>
-            </SafeAreaView>
+                </SafeAreaView>
         )
     }
 }
