@@ -58,6 +58,9 @@ class EditAccount extends Component {
     }
 
     updateUser = async () => {
+        const Email = this.state.editEmail ? this.state.editEmail : this.state.email;
+        const FirstName = this.state.editFName ? this.state.editFName : this.state.firstName;
+        const LastName = this.state.editLName ? this.state.editLName : this.state.lastName;
         try {
             let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/update/${this.state._id}`, {
                 method: 'PUT',
@@ -67,9 +70,9 @@ class EditAccount extends Component {
                     'Authorization': this.state.accessToken
                 },
                 body: JSON.stringify({
-                    email: this.state.email,
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName
+                    email: Email,
+                    firstName: FirstName,
+                    lastName: LastName
                 }),
             });
             let res = await response.text();
@@ -88,62 +91,6 @@ class EditAccount extends Component {
 
     render() {
         return (
-            //   <SafeAreaView style={styles.container}>
-            //     <Avatar
-            //         source={{
-            //             uri:
-            //                 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-            //         }}
-            //         showEditButton
-            //         rounded
-            //         size={150}
-            //         containerStyle={{ marginTop: 20, marginLeft: 20 }}
-            //     />
-            //     <Text style={ styles.name }>{`${this.state.firstName} ${this.state.lastName}`}</Text>
-            //     <Text style={ styles.status }>Maker Pro</Text>
-                
-            //     <TextInput
-            //         onChangeText={editFName => this.setState({ editFName })}
-            //         underlineColorAndroid='rgb(249, 15, 28)'
-            //         keyboardType="default"
-            //         placeholder='Update First Name'
-            //         style={styles.form}>
-            //     </TextInput>
-            //     <TextInput
-            //         onChangeText={editLName => this.setState({ editLName })}
-            //         underlineColorAndroid='rgb(249, 15, 28)'
-            //         keyboardType="default"
-            //         placeholder='Update Last Name'
-            //         style={styles.form}>
-            //     </TextInput>
-            //     <TextInput
-            //         onChangeText={editEmail => this.setState({ editEmail })}
-            //         underlineColorAndroid='rgb(249, 15, 28)'
-            //         returnKeyType="next"
-            //         keyboardType="email-address"
-            //         placeholder='Update Email'
-            //         autoCapitalize="none"
-            //         style={styles.form}>
-            //     </TextInput>
-            //     <Button 
-            //     onPress={() => this.props.navigation.navigate('ChangePassword')}
-            //     containerStyle={{ marginTop: 40 }}
-            //     buttonStyle={{ backgroundColor: "black" }}
-            //     title="Change Password"
-            //     />
-            //     <Button 
-            //     onPress={this.updateUser}
-            //     containerStyle={{ marginTop: 40 }}
-            //     buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-            //     title="Done"
-            //     />
-            //     <Button 
-            //     onPress={() => this.props.navigation.navigate('Account')}
-            //     containerStyle={{ marginTop: 40 }}
-            //     buttonStyle={{ backgroundColor: "rgb(249, 15, 28)" }}
-            //     title="Cancel"
-            //     />
-            // </SafeAreaView>
             <KeyboardAwareScrollView>
                 <SafeAreaView style={styles.container}>
                     <Avatar
