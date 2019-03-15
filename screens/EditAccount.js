@@ -19,22 +19,27 @@ class EditAccount extends Component {
     };
 
     constructor(props) {
-        super(props);
-        this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            _id: "",
-            accessToken: ""
-        }
+      super(props);
+      this.state = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        _id: "",
+        accessToken: "",
+        editFName: "",
+        editLName: "",
+        editEmail: "",
+      }
     }
 
     componentWillMount() {
-        this.getToken();
-        const { navigation } = this.props;
-        const _id = navigation.getParam('_id', 'no id');
-        console.log(_id);
-        this.setState({ _id });
+      this.getToken();
+      const {navigation} = this.props;
+      const _id = navigation.getParam('_id', 'no id');
+      const firstName = navigation.getParam('firstName', 'no first name');
+      const lastName = navigation.getParam('lastName', 'no last name');
+      const email = navigation.getParam('email', 'no email');
+      this.setState({_id, firstName, lastName, email});
     }
 
     getToken = async () => {
@@ -53,6 +58,9 @@ class EditAccount extends Component {
     }
 
     updateUser = async () => {
+        const Email = this.state.editEmail ? this.state.editEmail : this.state.email;
+        const FirstName = this.state.editFName ? this.state.editFName : this.state.firstName;
+        const LastName = this.state.editLName ? this.state.editLName : this.state.lastName;
         try {
             let response = await fetch(`https://cryptic-crag.herokuapp.com/api/v2/update/${this.state._id}`, {
                 method: 'PUT',
@@ -62,9 +70,9 @@ class EditAccount extends Component {
                     'Authorization': this.state.accessToken
                 },
                 body: JSON.stringify({
-                    email: this.state.email,
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName
+                    email: Email,
+                    firstName: FirstName,
+                    lastName: LastName
                 }),
             });
             let res = await response.text();
@@ -83,9 +91,8 @@ class EditAccount extends Component {
 
     render() {
         return (
-            // <SafeAreaView>
             <KeyboardAwareScrollView>
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     <Avatar
                         source={{
                             uri:
@@ -98,22 +105,23 @@ class EditAccount extends Component {
                     />
                     <Text style={styles.name}>{`${this.state.firstName} ${this.state.lastName}`}</Text>
                     <Text style={styles.status}>Maker Pro</Text>
+                    <Text style={styles.email}>{this.state.email}</Text>
                     <TextInput
-                        onChangeText={(firstName) => this.setState({ firstName })}
+                        onChangeText={editFName => this.setState({ editFName })}
                         underlineColorAndroid='rgb(249, 15, 28)'
                         keyboardType="default"
                         placeholder='Update First Name'
                         style={styles.form}>
                     </TextInput>
                     <TextInput
-                        onChangeText={(lastName) => this.setState({ lastName })}
+                        onChangeText={editLName => this.setState({ editLName })}
                         underlineColorAndroid='rgb(249, 15, 28)'
                         keyboardType="default"
                         placeholder='Update Last Name'
                         style={styles.form}>
                     </TextInput>
                     <TextInput
-                        onChangeText={(email) => this.setState({ email })}
+                        onChangeText={editEmail => this.setState({ editEmail })}
                         underlineColorAndroid='rgb(249, 15, 28)'
                         keyboardType="email-address"
                         placeholder='Update Email'
@@ -134,9 +142,8 @@ class EditAccount extends Component {
                         title="Change Password"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
-                </View>
+                </SafeAreaView>
             </KeyboardAwareScrollView>
-            //</SafeAreaView>
         )
     }
 }

@@ -44,7 +44,6 @@ class Login extends Component {
     storeToken = async (token) => {
         try {
           await AsyncStorage.setItem(ACCESS_TOKEN, token);
-          console.log('Token was stored');
         } catch (error) {
           console.log(error);
         }
@@ -111,8 +110,8 @@ class Login extends Component {
                     <Button 
                         buttonStyle={{ width: 200, height: 40, marginTop: 40, backgroundColor: 'transparent', borderColor: 'white', borderWidth: 1, borderRadius: 20 }}
                         title="Login"
-                        // onPress={ this.userLogin }
-                        onPress= {() => this.props.navigation.navigate('Home')}
+                        onPress={ this.userLogin }
+                        // onPress= {() => this.props.navigation.navigate('Home')}
                         containerViewStyle={{ borderColor: 'white' }}
                         rounded={ true }
                         type="outline"
