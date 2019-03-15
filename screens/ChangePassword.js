@@ -22,9 +22,8 @@ class ChangePassword extends Component {
 
     render() {
         return (
-            // <SafeAreaView>
             <KeyboardAwareScrollView>
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     <Avatar
                         source={{
                             uri:
@@ -67,13 +66,12 @@ class ChangePassword extends Component {
                     <Button
                         onPress={() => this.props.navigation.navigate('EditAccount')}
                         containerStyle={{ marginTop: 60, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                        buttonStyle={{ backgroundColor: "white" }}
+                        buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
                         title="Done"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
-                </View>
+                </SafeAreaView>
             </KeyboardAwareScrollView>
-            // </SafeAreaView>
         )
     }
 }

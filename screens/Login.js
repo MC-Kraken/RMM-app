@@ -109,7 +109,7 @@ class Login extends Component {
                         style={styles.form}>
                     </TextInput>
                     <Button 
-                        buttonStyle={{ width: 200, height: 40, marginTop: 20, backgroundColor: 'transparent', borderColor: 'white' }}
+                        buttonStyle={{ width: 200, height: 40, marginTop: 40, backgroundColor: 'transparent', borderColor: 'white', borderWidth: 1, borderRadius: 20 }}
                         title="Login"
                         // onPress={ this.userLogin }
                         onPress= {() => this.props.navigation.navigate('Home')}
@@ -119,7 +119,7 @@ class Login extends Component {
                         titleStyle={{ color: 'white' }}
                     />
                     <Button 
-                        buttonStyle={{ width: 200, height: 40, marginTop: 20, backgroundColor: 'transparent', borderColor: 'white' }}
+                        buttonStyle={{ width: 200, height: 40, marginTop: 10, backgroundColor: 'transparent', borderColor: 'white', borderWidth: 1, borderRadius: 20 }}
                         title="Register"
                         onPress={ () => this.props.navigation.navigate('Register') }
                         containerViewStyle={{ borderColor: 'white' }}
@@ -155,9 +155,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         opacity: .8,
         borderColor: 'white',
-        borderRadius: 10,
+        borderRadius: 5,
         borderWidth: 1,
-        marginTop: 20,
+        marginTop: 10,
         width: 200
     },
     container: {

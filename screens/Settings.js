@@ -10,16 +10,16 @@ import {
 import { Button } from 'react-native-elements';
 
 class Settings extends Component {
-    // static navigationOptions = {
-    //     title: 'Settings',
-    // };
+    static navigationOptions = {
+        title: 'Settings',
+    };
 
     render() {
         return (
             <SafeAreaView>
-                <View>
+                
 
-                </View>
+                
             </SafeAreaView>
         )
     }

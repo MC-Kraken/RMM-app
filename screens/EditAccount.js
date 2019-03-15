@@ -17,7 +17,7 @@ class EditAccount extends Component {
     static navigationOptions = {
         title: 'Edit Account',
     };
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -123,14 +123,14 @@ class EditAccount extends Component {
                     <Button
                         onPress={this.updateUser}
                         containerStyle={{ marginTop: 40, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                        buttonStyle={{ backgroundColor: "white" }}
+                        buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
                         title="Submit"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
                     <Button
                         onPress={() => this.props.navigation.navigate('ChangePassword')}
                         containerStyle={{ marginTop: 10, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                        buttonStyle={{ backgroundColor: "white" }}
+                        buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
                         title="Change Password"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />

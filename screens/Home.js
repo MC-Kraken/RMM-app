@@ -37,13 +37,11 @@ class Home extends Component {
               <Text style={styles.welcome}> Latest News </Text>
               <Icon style={{ textAlign: 'center' }} name="chevron-down" size={30} color="black" />
             </View>
-
             <Card
               title="25% off Maker Membership"
               titleStyle={{ fontSize: 25, padding: 1 }}
-              containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
+              containerStyle={{ padding: 5, borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/RMMpost.jpg")}
-              dividerStyle={{ borderWidth: 4, borderColor: 'black' }}
             >
               <Text style={styles.posts}>
                 In celebration of Women's History month, Red Mountain Makers is
@@ -51,20 +49,12 @@ class Home extends Component {
                 community! Come by any Sunday in the month of March to tour the
                 space during Open Maker Hours (5:30pm -9pm) and sign up to become
                 a Red Mountain Maker! RSVP at Meetup
-              <Text
-                  style={{ color: "blue" }}
-                  onPress={() =>
-                    LinkingIOS.openURL(
-                      "https://www.meetup.com/RedMountainMakers/"
-                    )
-                  }>
-                </Text>
               </Text>
             </Card>
             <Card
               title="Smarter Bham & BASE"
               titleStyle={{ fontSize: 25, padding: 1 }}
-              containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
+              containerStyle={{ padding: 5, borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/baseimg.png")}
             >
               <Text style={styles.posts}>
@@ -77,7 +67,7 @@ class Home extends Component {
             <Card
               title="18 Channels"
               titleStyle={{ fontSize: 25, padding: 1 }}
-              containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
+              containerStyle={{ padding: 5, borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/veml.jpg")}
             >
               <Text style={styles.posts}>
@@ -91,7 +81,7 @@ class Home extends Component {
             <Card
               title="Laser Cutter Fundraiser"
               titleStyle={{ fontSize: 25, padding: 1 }}
-              containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
+              containerStyle={{ padding: 5, borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/fundraiser.jpg")}
             >
               <Text style={styles.posts}>
@@ -104,7 +94,7 @@ class Home extends Component {
             <Card
               title="MR101 Intro to Quadcopters, Multi-rotors and Drones"
               titleStyle={{ fontSize: 25, padding: 1 }}
-              containerStyle={{ borderColor: 'rgb(249, 15, 28)', borderWidth: 3, borderRadius: 10 }}
+              containerStyle={{ padding: 5, borderWidth: 3, borderRadius: 10 }}
               image={require("../assets/drone.jpg")}
             >
               <Text style={styles.posts}>
@@ -129,6 +119,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   posts: {
+    textAlign: 'center',
     fontSize: 16,
     color: "black"
   },

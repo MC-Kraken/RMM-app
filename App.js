@@ -3,6 +3,7 @@ import { createStackNavigator, createAppContainer, createDrawerNavigator, create
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Settings from './screens/Settings';
+import Services from './screens/Services';
 import EditAccount from './screens/EditAccount';
 import ChangePassword from './screens/ChangePassword';
 import { Avatar } from 'react-native-elements';
@@ -33,7 +34,6 @@ const HomeStack = createStackNavigator(
             size={30}
             style={{ paddingLeft: 10 }}
             onPress={() => navigation.openDrawer()} />,
-
         headerRight:
           <Avatar
             rounded
@@ -100,13 +100,46 @@ const ClassesStack = createStackNavigator(
   }
 )
 
+const ServicesStack = createStackNavigator(
+  {
+    Services
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => {
+      return {
+        headerLeft:
+          <Icon
+            name="bars"
+            size={30}
+            style={{ paddingLeft: 10 }}
+            onPress={() => navigation.openDrawer()} />,
+        headerRight:
+          <Avatar
+            rounded
+            containerStyle={{ marginRight: 10 }}
+            source={{
+              uri:
+                'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+            }}
+          />
+      };
+    }
+  }
+)
+
 const SettingsStack = createStackNavigator(
   {
     Settings
   },
   {
-    defaultNavigationOptions: () => {
+    defaultNavigationOptions: ({ navigation }) => {
       return {
+        headerLeft:
+          <Icon
+            name="bars"
+            size={30}
+            style={{ paddingLeft: 10 }}
+            onPress={() => navigation.openDrawer()} />,
         headerRight:
           <Avatar
             rounded
@@ -126,6 +159,7 @@ const DrawerNavigator = createDrawerNavigator(
     Home: HomeStack,
     Classes: ClassesStack,
     Account: AccountStack,
+    Services: ServicesStack,
     Settings: SettingsStack
   },
   {

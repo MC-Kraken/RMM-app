@@ -111,14 +111,14 @@ class Account extends Component {
                     <Button
                         onPress={() => this.props.navigation.navigate('EditAccount')}
                         containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                        buttonStyle={{ backgroundColor: "white" }}
+                        buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
                         title="Edit Account"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
                     <Button
                         onPress={() => this.props.navigation.navigate('Pricing')}
                         containerStyle={{ marginTop: 20, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
-                        buttonStyle={{ backgroundColor: "white" }}
+                        buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
                         title="Purchase Membership"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
