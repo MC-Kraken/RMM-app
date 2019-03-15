@@ -67,7 +67,7 @@ class ChangePassword extends Component {
                         onPress={() => this.props.navigation.navigate('EditAccount')}
                         containerStyle={{ marginTop: 60, width: 200, borderColor: 'rgb(249, 15, 28)', borderWidth: 2 }}
                         buttonStyle={{ backgroundColor: "white", borderRadius: 20 }}
-                        title="Done"
+                        title="Submit"
                         titleStyle={{ color: 'rgb(249, 15, 28)' }}
                     />
                 </SafeAreaView>

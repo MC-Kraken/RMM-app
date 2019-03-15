@@ -55,7 +55,7 @@ class Services extends Component {
                     onBackdropPress={() => this.setState({ isVisible: false })}>
                     <>
                         <View style={styles.Overlay}>
-                            <Text style={styles.overlayHeader}>Rent a Space For You to Make</Text>
+                            <Text style={styles.overlayHeader}>Rent a Space for You to Make</Text>
                             <View>
                                 <Text style={styles.subText}>Price: ${this.state.cost}/month</Text>
                                 <Text style={styles.subText}>Rooms Available: {this.state.numOfRooms}</Text>
@@ -100,12 +100,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     overlayHeader: {
+        color: 'rgb(249, 15, 28)',
         fontSize: 30,
         fontWeight: "bold",
         textAlign: 'center',
-        borderRadius: 4,
-        borderWidth: 3,
-        borderColor: '#3d5875',
         marginBottom: 25
     },
     picker: {

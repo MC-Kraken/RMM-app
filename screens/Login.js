@@ -111,7 +111,7 @@ class Login extends Component {
                         buttonStyle={{ width: 200, height: 40, marginTop: 40, backgroundColor: 'transparent', borderColor: 'white', borderWidth: 1, borderRadius: 20 }}
                         title="Login"
                         onPress={ this.userLogin }
-                        // onPress= {() => this.props.navigation.navigate('Home')}
+                        //onPress= {() => this.props.navigation.navigate('Home')}
                         containerViewStyle={{ borderColor: 'white' }}
                         rounded={ true }
                         type="outline"
@@ -164,6 +164,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-})
+});
 
 export default Login;
