@@ -85,7 +85,8 @@ class Login extends Component {
             <ImageBackground
                 style={styles.bgImg}
                 source={require('../assets/login-page.jpg')}>
-                <SafeAreaView style={styles.container}>
+                <SafeAreaView style={{ flex: 1}}>
+                    <View style={styles.container}>
                     <Text style={styles.textTop}>Red Mountain</Text>
                     <Text style={styles.textBottom}>Makers</Text>
                     <Text style={{ color: 'white' }}>{this.state.error}</Text>
@@ -104,6 +105,7 @@ class Login extends Component {
                         keyboardType="default"
                         secureTextEntry
                         placeholder='Password'
+                        onSubmitEditing={() => { this.userLogin }} 
                         autoCapitalize= 'none'
                         style={styles.form}>
                     </TextInput>
@@ -126,6 +128,7 @@ class Login extends Component {
                         type="outline"
                         titleStyle={{ color: 'white' }}
                     />
+                    </View>
                 </SafeAreaView>
             </ImageBackground >
         )
